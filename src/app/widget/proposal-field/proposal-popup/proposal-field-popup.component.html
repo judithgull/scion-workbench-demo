@@ -1,0 +1,13 @@
+<wb-viewport [viewportClientCssClass]="'proposals-viewport-client'"
+             [overflowAuto]="overflowAuto">
+  <mat-nav-list dense wbDimension (wbDimensionChange)="onProposalListDimensionChange($event)">
+    <mat-list-item *ngFor="let proposalKey of proposalKeys$ | async; trackBy: trackByFn"
+                   (mousedown)="onProposalMousedown($event)"
+                   (mouseup)="onProposalMouseup(proposalKey)"
+                   [class.selected]="proposalKey === selection"
+                   [innerHTML]="displayText$(proposalKey) | async">
+    </mat-list-item>
+  </mat-nav-list>
+</wb-viewport>
+<div class="info-panel" *ngIf="!!info" [innerHTML]="info"></div>
+

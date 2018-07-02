@@ -1,0 +1,8 @@
+<wb-viewport class="form" [viewportClientCssClass]="'form-viewport-client'">
+  <ng-content></ng-content>
+</wb-viewport>
+
+<div *ngIf="formHandler.mode === FormMode.New" class="button-panel">
+  <button (click)="onOk()" type="button">Create</button>
+  <button (click)="onCancel()" type="button">Cancel</button>
+</div>

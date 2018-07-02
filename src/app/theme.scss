@@ -1,0 +1,46 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+// Palette-Generator: http://mcg.mbitson.com
+// http://mcg.mbitson.com/#!?themeblue=%23138acb&themename=theme-blue
+$theme-blue: (
+  50 : #e3f1f9,
+  100 : #b8dcef,
+  200 : #89c5e5,
+  300 : #5aaddb,
+  400 : #369cd3,
+  500 : #138acb, // default
+  600 : #1182c6,
+  700 : #0e77be,
+  800 : #0b6db8,
+  900 : #065aac,
+  A100 : #d6e9ff,
+  A200 : #a3cdff,
+  A400 : #70b1ff,
+  A700 : #57a3ff,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$app-primary: mat-palette($theme-blue);
+$app-accent: mat-palette($theme-blue, A400, A100, A700);
+$app-theme: mat-light-theme($app-primary, $app-accent);
+@include angular-material-theme($app-theme);
+
+$primary: map-get($app-theme, primary);
+$accent: map-get($app-theme, accent);

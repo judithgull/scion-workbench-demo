@@ -1,0 +1,65 @@
+@import '../theme';
+
+:host {
+  $gap: 1.5em;
+
+  > app-form form {
+    display: grid;
+    grid-template-columns: minmax(350px, 400px) minmax(350px, 400px);
+    grid-column-gap: $gap;
+    grid-row-gap: $gap;
+    grid-template-rows: auto;
+
+    .personal-section {
+      grid-column: 1/2;
+      grid-row: 1/3;
+    }
+
+    .photo-card {
+      grid-column: 2/3;
+      grid-row: 1/2;
+    }
+
+    .friends-card {
+      grid-column: 2/3;
+      grid-row: 2/4;
+    }
+
+    &.column-layout {
+      grid-template-columns: 1fr;
+      .photo-card {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .personal-section {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      .friends-card {
+        grid-column: 1;
+        grid-row: 3;
+      }
+    }
+
+    .personal-section {
+      display: flex;
+      flex-direction: column;
+
+      > mat-card {
+        margin-bottom: $gap;
+
+        > mat-card-content {
+          display: flex;
+          flex-direction: column;
+
+          > p {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+      }
+    }
+  }
+}

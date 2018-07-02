@@ -1,0 +1,19 @@
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: .5em;
+
+  > app-filter-field {
+    flex: none;
+  }
+
+  > wb-viewport {
+    flex: auto;
+
+    ::ng-deep .viewport-client {
+      display: block;
+      width: 100%;
+    }
+  }
+}

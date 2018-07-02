@@ -1,0 +1,18 @@
+<app-filter-field placeholder="Search People" (filter)="onFilter($event)"></app-filter-field>
+
+<wb-viewport [viewportClientCssClass]="'viewport-client'">
+  <mat-nav-list>
+    <a *ngFor="let person of persons$ | async; trackBy: trackByFn;" [wbRouterLink]="['person', person.id]" mat-list-item>
+      <mat-icon>account_box</mat-icon>
+      <h3 matLine>{{displayName(person)}}</h3>
+      <span matLine>{{person.city | appFormatCity$ | async}}</span>
+    </a>
+  </mat-nav-list>
+
+  <!-- Activity actions -->
+  <ng-template wbActivityAction>
+    <button [wbRouterLink]="['person', 'new']" mat-icon-button title="Create person" type="button">
+      <mat-icon>add</mat-icon>
+    </button>
+  </ng-template>
+</wb-viewport>

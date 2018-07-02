@@ -1,0 +1,19 @@
+@import '../theme';
+
+:host {
+  display: block;
+  position: relative; // positioning anchor for 'open-map' button
+
+  mat-card {
+    > mat-card-content {
+      height: 300px;
+    }
+
+    > button.open-map {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      background-color: #FFFFFF;
+    }
+  }
+}

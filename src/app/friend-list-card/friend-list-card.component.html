@@ -1,0 +1,42 @@
+<mat-card>
+  <!-- Title -->
+  <mat-card-title>Friends</mat-card-title>
+  <!-- Add friend button -->
+  <mat-card-subtitle>
+    <mat-form-field floatLabel="auto">
+      <input #friend_add_input
+             matInput
+             appProposalField appPersonProposalProvider
+             [formControl]="friendAddInputControl"
+             placeholder='Enter the name of a friend to add'
+             (keydown.enter)="friendAddInputControl.value && onAdd(friendAddInputControl.value)">
+    </mat-form-field>
+    <button type="button" mat-button mat-icon-button [disabled]="!friendAddInputControl.value" title="Add friend"
+            (click)="onAdd(friendAddInputControl.value)">
+      <mat-icon>person_add</mat-icon>
+    </button>
+  </mat-card-subtitle>
+
+  <mat-divider></mat-divider>
+
+  <!-- Friend list -->
+  <mat-card-content>
+    <mat-nav-list>
+      <mat-list-item *ngFor="let friend of friendIds | appResolvePerson$ | async; trackBy: trackByFn;"
+                     (click)="onOpen(friend.id, $event.ctrlKey && 'blank' || 'self')">
+        <h3 matLine>{{friend.firstname}} {{friend.lastname}}</h3>
+        <span matLine>{{friend.city | appFormatCity$ | async}}</span>
+
+        <!-- Open friend -->
+        <button mat-icon-button (click)="onOpen(friend.id, 'blank'); $event.stopPropagation();" type="button" title="Open friend in new view">
+          <mat-icon>open_in_new</mat-icon>
+        </button>
+
+        <!-- Remove friend -->
+        <button (click)="onRemove(friend.id); $event.stopPropagation();" mat-icon-button type="button" title="Remove friend">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-card-content>
+</mat-card>
