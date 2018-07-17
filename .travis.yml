@@ -1,0 +1,33 @@
+env:
+  global:
+  matrix:
+    # $GH_TOKEN Token to access GitHub repo for deploying to GitHub Pages
+    secure: OJtjcQ41494IeUQ7CpD1HfYgNJndcoloZL8zBIyP/N+Vy1c2u8qJ3gPRt5MJy2I/enzPMiMEsEHKgQA6rbcuMsYb3GR7X4tRHqXStLV0VcHGsGSo+hROvOp1bbqqYDZ8R2xoqJbSBu3elQrQmLrZH59rP1ovv8Vub7CPfYZXpHqFA4pBgNkQtCfZ7P54aJnwd4Ptm3ralTvfK3DswYYYbCPA4slKX/k5KtKUmT4oz4P6UtrcDghXrgOKLnKUmHIzv0wC/+sj+bEQjqW78pn3ICDzaoVfhSlI14W9vyfDmP5ue+86xa8xJrqUvhmMyhCW+4TTgHahafxN2CGcA9aVjoSg0oKPTT97WIR14OvfDDEUreTLoO4T9x3AUvm5m9WW8MBd14LQ3VvsIc4VTwnNAhN9afl3rqFoqH0ukX95abnm4xz8hir2KCmsExTD/d6L0hYPVtBf7UB93sYqIf7zaz+Lfxskc7AzOYcq5aOvinohnnDGS5VQlOLzkbbbVVbefTVc5DbNXdoN/YytMtQGnZ4pzNbYKtqmIxMTfpJucctUty5DqvPK9wLAEvY7+zUalr4GN5kFoIg1Hy6sbBRng7r5BoKcB6APbjZxG5qHCNGTm9ELmjzV0g1RmKU1uZARI/WfQJnLcazz8EAKRnjbFGgyTbqh6nTqOoH37rPe9LE=
+sudo: required
+dist: trusty
+language: node_js
+node_js:
+- '8'
+addons:
+apt:
+  sources:
+  - google-chrome
+  packages:
+  - google-chrome-stable
+  - google-chrome-beta
+before_install:
+- export CHROME_BIN=chromium-browser
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+install:
+- npm install
+script:
+- ng lint scion-workbench-demo --type-check
+- ng build scion-workbench-demo --prod --base-href "/scion-workbench-demo/"
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GH_TOKEN
+  local_dir: dist/scion-workbench-demo
+  on:
+    branch: master
