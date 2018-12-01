@@ -12,7 +12,8 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Host
 import { merge, Observable, of, Subject } from 'rxjs';
 import { PROPOSAL_FILTER, PROPOSAL_PROVIDER, PROPOSAL_SELECTION, ProposalKey } from '../proposal-field.constants';
 import { first, map, switchMap, tap } from 'rxjs/operators';
-import { SciDimension, SciViewportComponent } from '@scion/workbench';
+import { SciDimension } from '@scion/dimension';
+import { SciViewportComponent } from '@scion/viewport';
 import { MatListItem } from '@angular/material';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ProposalProvider } from '../proposal-provider';
@@ -70,7 +71,8 @@ export class ProposalFieldPopupComponent implements OnDestroy {
         switchMap((proposals: ProposalKey[], index: number) => {
           if (index === 0 && this.selection) { // initial population
             return this.siblingProposals$(this.selection);
-          } else {
+          }
+          else {
             this.selection = proposals[0];
             return of(proposals);
           }
@@ -92,7 +94,8 @@ export class ProposalFieldPopupComponent implements OnDestroy {
     if (this._proposalProvider.proposalText$) {
       const proposalText$ = this._proposalProvider.proposalText$(value);
       return (proposalText$ instanceof Observable ? proposalText$ : of(proposalText$));
-    } else {
+    }
+    else {
       const proposalText$ = this._proposalProvider.displayText$(value);
       return (proposalText$ instanceof Observable ? proposalText$ : of(proposalText$));
     }

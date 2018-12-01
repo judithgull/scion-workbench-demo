@@ -15,7 +15,9 @@ import { ProposalFieldPopupComponent } from './proposal-field/proposal-popup/pro
 import { ProposalFieldDirective } from './proposal-field/proposal-field.directive';
 import { FilterFieldComponent } from './filter-field/filter-field.component';
 import { LinkNotificationComponent } from './link-notification/link-notification.component';
-import { SciDimensionModule, SciViewportModule, WorkbenchModule } from '@scion/workbench';
+import { WorkbenchModule } from '@scion/workbench';
+import { SciViewportModule } from '@scion/viewport';
+import { SciDimensionModule } from '@scion/dimension';
 import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 

@@ -181,7 +181,11 @@ export class FormComponent implements OnDestroy {
     const action = await this._messageBoxService.open({
       content: 'Do you want to save changes?',
       severity: 'info',
-      actions: ['yes', 'no', 'cancel']
+      actions: {
+        yes: 'Yes',
+        no: 'No',
+        cancel: 'Cancel'
+      }
     });
 
     switch (action) {

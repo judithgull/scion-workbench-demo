@@ -27,6 +27,24 @@
     //      "@scion/workbench/*": [
     //        "../scion-workbench/dist/scion/workbench/*"
     //      ],
+    //      "@scion/mouse-dispatcher": [
+    //        "../scion-workbench/dist/scion/mouse-dispatcher/src/public_api"
+    //      ],
+    //      "@scion/mouse-dispatcher/*": [
+    //        "../scion-workbench/dist/scion/mouse-dispatcher/src/*"
+    //      ],
+    //      "@scion/dimension": [
+    //        "../scion-workbench/dist/scion/dimension/src/public_api"
+    //      ],
+    //      "@scion/dimension/*": [
+    //        "../scion-workbench/dist/scion/dimension/src/*"
+    //      ],
+    //      "@scion/viewport/*": [
+    //        "../scion-workbench/dist/scion/viewport/src/*"
+    //      ],
+    //      "@scion/viewport": [
+    //        "../scion-workbench/dist/scion/viewport/src/public_api"
+    //      ],
     //      "@angular/*": [
     //        "./node_modules/@angular/*"
     //      ],
@@ -47,6 +65,24 @@
     //      ],
     //      "@scion/workbench/*": [
     //        "../scion-workbench/projects/scion/workbench/src/*"
+    //      ],
+    //      "@scion/mouse-dispatcher": [
+    //        "../scion-workbench/projects/scion/mouse-dispatcher/src/public_api"
+    //      ],
+    //      "@scion/mouse-dispatcher/*": [
+    //        "../scion-workbench/projects/scion/mouse-dispatcher/src/*"
+    //      ],
+    //      "@scion/dimension": [
+    //        "../scion-workbench/projects/scion/dimension/src/public_api"
+    //      ],
+    //      "@scion/dimension/*": [
+    //        "../scion-workbench/projects/scion/dimension/src/*"
+    //      ],
+    //      "@scion/viewport/*": [
+    //        "../scion-workbench/projects/scion/viewport/src/*"
+    //      ],
+    //      "@scion/viewport": [
+    //        "../scion-workbench/projects/scion/viewport/src/public_api"
     //      ],
     //      "@angular/*": [
     //        "./node_modules/@angular/*"
